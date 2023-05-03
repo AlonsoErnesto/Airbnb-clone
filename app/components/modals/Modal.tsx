@@ -51,6 +51,7 @@ const Modal:React.FC<ModalProps> = ({
 
   const handleSecondaryAction = useCallback(()=>{
     if(disabled || !secondaryAction) return;
+    secondaryAction();
   },[disabled, secondaryAction]);
 
   if(!isOpen) return null;
@@ -163,18 +164,19 @@ const Modal:React.FC<ModalProps> = ({
                 >
                   {secondaryAction && secondaryActionLabel && (
                     <Button
-                    outline
-                    disabled={disabled}
-                    label={secondaryActionLabel}
-                    onClick={handleSecondaryAction}
+                      outline
+                      disabled={disabled}
+                      label={secondaryActionLabel}
+                      onClick={handleSecondaryAction}
                     />
                   )}
-                  <Button 
-                  disabled={disabled}
-                  label={actionLabel}
-                  onClick={handleSubmit}
+                  <Button
+                    disabled={disabled}
+                    label={actionLabel}
+                    onClick={handleSubmit}
                   />
                 </div>
+                {footer}
               </div>
             </div>
           </div>
