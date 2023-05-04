@@ -26,7 +26,7 @@ const LoginModal = () => {
 
    const router = useRouter();
    const registerModal = useRegisterModal();
-   const LoginModal = useLoginModal();
+   const loginModal = useLoginModal();
    const [isLoading, setIsLoading] = useState(false);
    const {
       register,
@@ -52,7 +52,7 @@ const LoginModal = () => {
          if(callback?.ok){
             toast.success('Logged in');
             router.refresh();
-            LoginModal.onClose();
+            loginModal.onClose();
          }
          if(callback?.error){
             toast.error(callback.error);
@@ -134,10 +134,10 @@ const LoginModal = () => {
   return (
    <Modal
       disabled={isLoading}
-      isOpen={LoginModal.isOpen}
+      isOpen={loginModal.isOpen}
       title="Login"
       actionLabel='Continue'
-      onClose={LoginModal.onClose}
+      onClose={loginModal.onClose}
       onSubmit={handleSubmit(onSubmit)}
       body={bodyContent}
       footer={footerContent}
